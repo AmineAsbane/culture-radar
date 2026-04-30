@@ -1,5 +1,5 @@
 // Configuration API - À adapter selon ton environnement
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://melodious-comfort-production-1295.up.railway.app/api';
 
 // Variables globales
 let allEvents = []; // Tous les événements du backend
