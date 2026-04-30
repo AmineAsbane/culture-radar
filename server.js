@@ -11,7 +11,7 @@ const app = express();
 // ===== MIDDLEWARE =====
 app.use(cors({
     origin: function(origin, callback) {
-        const allowedOrigins = ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5000'];
+        const allowedOrigins = ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5000', 'https://melodious-comfort-production-1295.up.railway.app'];
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
