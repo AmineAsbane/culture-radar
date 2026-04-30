@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Détails d'un événement CultureRadar">
+    <title>Détails de l'événement | Culture Radar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .event-detail-hero {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .event-detail-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.1));
+            z-index: 1;
+        }
+
+        .event-detail-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .event-detail-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .event-detail-category {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: capitalize;
+            margin-bottom: 15px;
+        }
+
+        .event-detail-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .event-detail-main {
+            background: white;
+        }
+
+        .event-detail-sidebar {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 15px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .detail-section {
+            margin-bottom: 40px;
+        }
+
+        .detail-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .detail-info-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .detail-info-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 15px;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .detail-info-content h3 {
+            margin: 0 0 5px 0;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-info-content p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .sidebar-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sidebar-price-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .participate-btn-large {
+            width: 100%;
+            padding: 18px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .participate-btn-large:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
+        }
+
+        .participate-btn-large:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background-color: #ccc;
+        }
+
+        .sidebar-info {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .sidebar-info strong {
+            color: var(--primary-color);
+        }
+
+        .sidebar-info p {
+            margin: 5px 0;
+            color: var(--text-light);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: var(--accent-color);
+            transform: translateX(-5px);
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .map-detail {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .event-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--light-color);
+            border-radius: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .event-detail-container {
+                grid-template-columns: 1fr;
+            }
+
+            .event-detail-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .event-detail-hero {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/Logo culture radar.png" alt="Culture Radar Logo" class="logo-img">
+                    <div class="logo">Culture Radar</div>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html#accueil">Accueil</a></li>
+                        <li><a href="index.html#evenements">Événements</a></li>
+                        <li><a href="creer-evenement.html">Créer un événement</a></li>
+                        <li><a href="index.html#carte">Carte</a></li>
+                        <li><a href="index.html#apropos">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="connexion.html" class="btn-nav">Connexion</a></li>
+                        <li><a href="inscription.html" class="btn-nav">Inscription</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="container" style="margin-top: 30px; margin-bottom: 60px;">
+        <!-- Bouton retour -->
+        <a href="index.html#evenements" class="back-button">
+            <i class="fas fa-arrow-left"></i> Retour aux événements
+        </a>
+
+        <!-- Zone de chargement -->
+        <div id="loading" class="loading">
+            <i class="fas fa-spinner fa-spin"></i> Chargement de l'événement...
+        </div>
+
+        <!-- Zone d'erreur -->
+        <div id="error" style="display: none;"></div>
+
+        <!-- Contenu événement -->
+        <div id="event-content" style="display: none;">
+            <!-- Hero image -->
+            <div class="event-detail-hero" id="hero-image">
+                <div class="event-detail-hero-content">
+                    <div class="event-detail-category" id="detail-category">Événement</div>
+                    <h1 id="detail-title">Titre de l'événement</h1>
+                </div>
+            </div>
+
+            <!-- Contenu détail -->
+            <div class="event-detail-container">
+                <!-- Colonne principale -->
+                <div class="event-detail-main">
+                    <!-- Description -->
+                    <div class="detail-section">
+                        <h2>À propos de cet événement</h2>
+                        <p id="detail-description" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-color);">
+                            Description complète de l'événement...
+                        </p>
+                    </div>
+
+                    <!-- Infos pratiques -->
+                    <div class="detail-section">
+                        <h2>Informations pratiques</h2>
+
+                        <div class="detail-info-row">
+                            <div class="detail-info-icon">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                            <div class="detail-info-content">
+                                <h3>Date et heure</h3>
+                                <p id="detail-date">À définir</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-info-row">
+                            <div class="detail-info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="detail-info-content">
+                                <h3>Localisation</h3>
+                                <p id="detail-location">Localisation à définir</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-info-row">
+                            <div class="detail-info-icon">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <div class="detail-info-content">
+                                <h3>Catégorie</h3>
+                                <p id="detail-cat">Catégorie</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-info-row">
+                            <div class="detail-info-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="detail-info-content">
+                                <h3>Participants</h3>
+                                <p id="detail-participants">0/30 inscrits</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte -->
+                    <div class="detail-section">
+                        <h2>Localisation</h2>
+                        <div id="map" class="map-detail"></div>
+                    </div>
+
+                    <!-- Statistiques -->
+                    <div class="event-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="stat-price">0€</div>
+                            <div class="stat-label">Prix</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="stat-registered">0</div>
+                            <div class="stat-label">Inscrits</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="stat-capacity">30</div>
+                            <div class="stat-label">Capacité</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="stat-available">30</div>
+                            <div class="stat-label">Places restantes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="event-detail-sidebar">
+                    <div class="sidebar-price-label">Prix d'entrée</div>
+                    <div class="sidebar-price" id="sidebar-price">25€</div>
+
+                    <button class="participate-btn-large" id="participate-btn">
+                        <i class="fas fa-check-circle"></i> Participer à cet événement
+                    </button>
+
+                    <div class="sidebar-info">
+                        <p><strong>Créé par :</strong></p>
+                        <p id="creator-info">Organisateur</p>
+                    </div>
+
+                    <div class="sidebar-info">
+                        <p><strong>Statut :</strong></p>
+                        <p id="status-info">En ligne</p>
+                    </div>
+
+                    <div class="sidebar-info">
+                        <p><strong>Places disponibles :</strong></p>
+                        <p id="places-info">30 places</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/Logo culture radar.png" alt="Culture Radar" class="footer-logo-img">
+                    <p>Découvrez Paris autrement, en toute discrétion.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html#accueil">Accueil</a></li>
+                        <li><a href="index.html#evenements">Événements</a></li>
+                        <li><a href="index.html#carte">Carte</a></li>
+                        <li><a href="index.html#apropos">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+                        <li><a href="#">CGU</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Culture Radar - Tous droits réservés | Projet pédagogique</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📄 Page détail événement chargée');
+            
+            // Menu mobile
+            initMobileMenu();
+            
+            // Charger l'événement
+            loadEventDetail();
+            
+            // Header scroll
+            setupHeaderScroll();
+        });
+
+        // ===== CHARGER LES DÉTAILS DE L'ÉVÉNEMENT =====
+        async function loadEventDetail() {
+            try {
+                // Récupérer l'ID de l'URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const eventId = urlParams.get('id');
+
+                if (!eventId) {
+                    showError('❌ Aucun événement spécifié. <a href="index.html">Retour aux événements</a>');
+                    return;
+                }
+
+                console.log('📥 Chargement de l\'événement:', eventId);
+
+                // Récupérer tous les événements
+                const response = await fetch(`${API_URL}/events`);
+                const data = await response.json();
+
+                if (!data.events || data.events.length === 0) {
+                    showError('❌ Impossible de charger les événements');
+                    return;
+                }
+
+                // Chercher l'événement avec cet ID
+                const event = data.events.find(e => e.id === eventId);
+
+                if (!event) {
+                    showError('❌ Événement non trouvé. <a href="index.html">Retour aux événements</a>');
+                    return;
+                }
+
+                console.log('✅ Événement trouvé:', event.title);
+                displayEventDetail(event);
+
+            } catch(error) {
+                console.error('❌ Erreur:', error);
+                showError(`❌ Erreur lors du chargement: ${error.message}`);
+            }
+        }
+
+        // ===== AFFICHER LES DÉTAILS =====
+        function displayEventDetail(event) {
+            const eventDate = new Date(event.event_date);
+            const formattedDate = eventDate.toLocaleDateString('fr-FR', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+
+            // Mettre à jour le titre de la page
+            document.title = `${event.title} | Culture Radar`;
+
+            // Hero image
+            const heroImage = document.getElementById('hero-image');
+            heroImage.style.backgroundImage = `url('${event.image_url || 'https://images.unsplash.com/photo-1540575467063-178f50c2dff0?w=1200&h=400&fit=crop'}')`;
+
+            // Détails
+            document.getElementById('detail-category').textContent = event.category || 'Événement';
+            document.getElementById('detail-title').textContent = event.title;
+            document.getElementById('detail-description').textContent = event.description || 'Pas de description disponible';
+            document.getElementById('detail-date').textContent = formattedDate;
+            document.getElementById('detail-location').textContent = event.location || 'Localisation non spécifiée';
+            document.getElementById('detail-cat').textContent = event.category || 'Non catégorisé';
+            document.getElementById('detail-participants').textContent = `${event.current_participants || 0}/${event.max_participants || 30} inscrits`;
+
+            // Sidebar
+            document.getElementById('sidebar-price').textContent = `${event.price || 0}€`;
+            document.getElementById('stat-price').textContent = `${event.price || 0}€`;
+            document.getElementById('stat-registered').textContent = event.current_participants || 0;
+            document.getElementById('stat-capacity').textContent = event.max_participants || 30;
+            const available = (event.max_participants || 30) - (event.current_participants || 0);
+            document.getElementById('stat-available').textContent = available;
+            document.getElementById('places-info').textContent = `${available} place${available > 1 ? 's' : ''}`;
+
+            // Créateur
+            document.getElementById('creator-info').textContent = 'Organisateur anonyme';
+            document.getElementById('status-info').textContent = event.is_published ? '✅ En ligne' : '⏳ En attente';
+
+            // Bouton participer
+            const participateBtn = document.getElementById('participate-btn');
+            participateBtn.setAttribute('data-event-id', event.id);
+            participateBtn.addEventListener('click', () => participateToEvent(event.id, participateBtn));
+
+            // Afficher le contenu et masquer le chargement
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('event-content').style.display = 'block';
+
+            // Initialiser la carte
+            initMapDetail(event);
+        }
+
+        // ===== PARTICIPER À UN ÉVÉNEMENT =====
+        async function participateToEvent(eventId, button) {
+            const token = localStorage.getItem('token');
+
+            if (!token) {
+                alert('⚠️ Veuillez vous connecter pour participer');
+                window.location.href = 'connexion.html';
+                return;
+            }
+
+            try {
+                button.disabled = true;
+                button.textContent = '⏳ Inscription en cours...';
+
+                const res = await fetch(`${API_URL}/events/${eventId}/join`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    button.textContent = '✅ Vous êtes inscrit!';
+                    button.style.backgroundColor = '#4CAF50';
+                    alert('✅ Vous êtes inscrit à cet événement!');
+                    // Recharger les détails
+                    setTimeout(() => location.reload(), 2000);
+                } else {
+                    alert(`❌ Erreur: ${data.error}`);
+                    button.disabled = false;
+                    button.textContent = '🎫 Participer à cet événement';
+                }
+            } catch(e) {
+                alert(`❌ Erreur: ${e.message}`);
+                button.disabled = false;
+                button.textContent = '🎫 Participer à cet événement';
+            }
+        }
+
+        // ===== CARTE DÉTAIL =====
+        function initMapDetail(event) {
+            if (!event.latitude || !event.longitude) return;
+
+            const mapContainer = document.getElementById('map');
+            if (!mapContainer) return;
+
+            if (typeof google === 'undefined' || !google.maps) {
+                const script = document.createElement('script');
+                script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDemoKey123456';
+                script.async = true;
+                script.defer = true;
+                script.onload = () => createMapDetail(event, mapContainer);
+                document.head.appendChild(script);
+            } else {
+                createMapDetail(event, mapContainer);
+            }
+        }
+
+        function createMapDetail(event, mapContainer) {
+            if (!window.google || !window.google.maps) return;
+
+            const map = new google.maps.Map(mapContainer, {
+                zoom: 14,
+                center: { lat: event.latitude, lng: event.longitude }
+            });
+
+            const marker = new google.maps.Marker({
+                position: { lat: event.latitude, lng: event.longitude },
+                map: map,
+                title: event.title,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/FF6B6B.png'
+            });
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: `<div style="padding: 10px;"><h4>${event.title}</h4><p>${event.location}</p></div>`
+            });
+
+            marker.addListener('click', () => {
+                infoWindow.open(map, marker);
+            });
+        }
+
+        // ===== UTILITAIRES =====
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            const errorDiv = document.getElementById('error');
+            errorDiv.innerHTML = `<div class="error">${message}</div>`;
+            errorDiv.style.display = 'block';
+        }
+
+        function initMobileMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navList = document.querySelector('.nav-list');
+
+            if (hamburger && navList) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navList.classList.toggle('active');
+                });
+
+                document.querySelectorAll('.nav-list a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navList.classList.remove('active');
+                    });
+                });
+            }
+        }
+
+        function setupHeaderScroll() {
+            const header = document.querySelector('.header');
+            if (!header) return;
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                    document.querySelectorAll('.nav-list a, .logo').forEach(el => {
+                        el.style.color = '#1a1a1a';
+                    });
+                } else {
+                    header.style.background = '';
+                    header.style.boxShadow = '';
+                    document.querySelectorAll('.nav-list a, .logo').forEach(el => {
+                        el.style.color = '';
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

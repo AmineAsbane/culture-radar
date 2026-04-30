@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Inscrivez-vous à Culture Radar pour participer aux événements culturels anonymes à Paris.">
+    <title>Inscription | Culture Radar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/Logo culture radar.png" alt="Culture Radar Logo" class="logo-img">
+                    <div class="logo">Culture Radar</div>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#evenements">Événements</a></li>
+                        <li><a href="creer-evenement.html">Créer un événement</a></li>
+                        <li><a href="index.html#carte">Carte</a></li>
+                        <li><a href="index.html#apropos">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Inscription -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h1>Inscription</h1>
+                        <p>Rejoignez la communauté Culture Radar et découvrez Paris autrement</p>
+                    </div>
+
+                    <form id="register-form" class="auth-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pseudo">Pseudo *</label>
+                                <input type="text" id="pseudo" name="pseudo" required 
+                                    placeholder="Choisissez un pseudo">
+                                <small>3-20 caractères, lettres et chiffres uniquement</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required 
+                                    placeholder="votre.email@exemple.com">
+                                <small>Nous ne partagerons jamais votre email</small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">Mot de passe *</label>
+                                <div class="password-input">
+                                    <input type="password" id="password" name="password" required 
+                                        placeholder="Choisissez un mot de passe">
+                                    <button type="button" class="password-toggle" id="toggle-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <small>Minimum 8 caractères</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm-password">Confirmer le mot de passe *</label>
+                                <div class="password-input">
+                                    <input type="password" id="confirm-password" name="confirm-password" required 
+                                        placeholder="Confirmez votre mot de passe">
+                                    <button type="button" class="password-toggle" id="toggle-confirm-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interests">Centres d'intérêt</label>
+                            <div class="interests-grid">
+                                <label class="interest-label">
+                                    <input type="checkbox" name="interests" value="visite">
+                                    <span class="interest-check">Visites culturelles</span>
+                                </label>
+                                <label class="interest-label">
+                                    <input type="checkbox" name="interests" value="musique">
+                                    <span class="interest-check">Musique</span>
+                                </label>
+                                <label class="interest-label">
+                                    <input type="checkbox" name="interests" value="art">
+                                    <span class="interest-check">Art</span>
+                                </label>
+                                <label class="interest-label">
+                                    <input type="checkbox" name="interests" value="litterature">
+                                    <span class="interest-check">Littérature</span>
+                                </label>
+                                <label class="interest-label">
+                                    <input type="checkbox" name="interests" value="theatre">
+                                    <span class="interest-check">Théâtre</span>
+                                </label>
+                                <label class="interest-label">
+                                    <input type="checkbox" name="interests" value="photographie">
+                                    <span class="interest-check">Photographie</span>
+                                </label>
+                            </div>
+                            <small>Sélectionnez vos centres d'intérêt pour recevoir des recommandations</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Présentation (optionnel)</label>
+                            <textarea id="bio" name="bio" rows="3" 
+                                placeholder="Parlez-nous un peu de vous et de vos passions culturelles..."></textarea>
+                            <small>Maximum 200 caractères</small>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="anonymity" name="anonymity" checked>
+                                <span class="checkmark"></span>
+                                Je souhaite rester anonyme (mon vrai nom ne sera jamais affiché)
+                            </label>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Je souhaite recevoir la newsletter des nouveaux événements
+                            </label>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <span class="checkmark"></span>
+                                J'accepte les <a href="../politique-confidentialite.html">conditions générales d'utilisation</a> et la <a href="../politique-confidentialite.html">politique de confidentialité</a> *
+                            </label>
+                            <small>Champ obligatoire</small>
+                        </div>
+
+                        <!-- Captcha -->
+                        <div class="form-group captcha-group">
+                            <label for="captcha">Vérification *</label>
+                            <div class="captcha-container">
+                                <div class="captcha-question">
+                                    <span id="captcha-question">Combien font 4 + 7 ?</span>
+                                    <input type="text" id="captcha" name="captcha" required placeholder="Réponse">
+                                </div>
+                                <small>Champ obligatoire - Pour protéger contre les spams</small>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-full">Créer mon compte</button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p>Déjà un compte ? <a href="connexion.html">Connectez-vous</a></p>
+                        <p><a href="index.html">Continuer sans inscription</a></p>
+                    </div>
+                </div>
+
+                <div class="auth-info">
+                    <div class="info-card">
+                        <h3>Rejoignez notre communauté</h3>
+                        <p>Plus de <strong>10 000 membres</strong> nous font déjà confiance pour découvrir la culture parisienne dans le respect de l'anonymat.</p>
+                        
+                        <div class="stats">
+                            <div class="stat">
+                                <strong>500+</strong>
+                                <span>Événements par mois</span>
+                            </div>
+                            <div class="stat">
+                                <strong>50+</strong>
+                                <span>Catégories culturelles</span>
+                            </div>
+                            <div class="stat">
+                                <strong>95%</strong>
+                                <span>Membres satisfaits</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Témoignages</h3>
+                        <div class="testimonials">
+                            <div class="testimonial">
+                                <p>"Culture Radar m'a permis de découvrir des lieux magnifiques que je n'aurais jamais visités seul."</p>
+                                <cite>- Alexandre, pseudo "ArtLover"</cite>
+                            </div>
+                            <div class="testimonial">
+                                <p>"L'anonymat me rassure, je peux être moi-même sans crainte de jugement."</p>
+                                <cite>- Marie, pseudo "CultureAddict"</cite>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/Logo culture radar.png" alt="Culture Radar" class="footer-logo-img">
+                    <p>Découvrez Paris autrement, en toute discrétion.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#evenements">Événements</a></li>
+                        <li><a href="index.html#carte">Carte</a></li>
+                        <li><a href="index.html#apropos">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="../mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="../politique-confidentialite.html">Politique de confidentialité</a></li>
+                        <li><a href="#">CGU</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Culture Radar - Tous droits réservés | Projet pédagogique</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bandeau cookies -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="container">
+            <div class="cookie-content">
+                <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer,
+                    you acceptez notre <a href="../politique-confidentialite.html">politique de confidentialité</a>.</p>
+                <div class="cookie-buttons">
+                    <button id="accept-cookies" class="btn btn-small">Accepter</button>
+                    <button id="refuse-cookies" class="btn btn-small btn-outline">Refuser</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

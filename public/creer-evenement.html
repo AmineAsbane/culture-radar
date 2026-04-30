@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Créez votre propre événement culturel anonyme à Paris. Partagez votre passion avec d'autres amateurs de culture.">
+    <title>Créer un événement | Culture Radar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/Logo culture radar.png" alt="Culture Radar Logo" class="logo-img">
+                    <div class="logo">Culture Radar</div>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#evenements">Événements</a></li>
+                        <li><a href="index.html#carte">Carte</a></li>
+                        <li><a href="index.html#apropos">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Créer Événement -->
+    <section class="create-event">
+        <div class="container">
+            <div class="create-event-header">
+                <h1>Créer un événement</h1>
+                <p>Partagez votre passion culturelle avec la communauté Paris Culture Anonyme</p>
+            </div>
+
+            <div class="create-event-content">
+                <div class="create-event-form">
+                    <form id="event-form" class="event-form">
+                        <div class="form-section">
+                            <h2>Informations générales</h2>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="event-title">Titre de l'événement *</label>
+                                    <input type="text" id="event-title" name="title" required placeholder="Ex: Visite guidée du Musée d'Orsay">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="event-category">Catégorie *</label>
+                                    <select id="event-category" name="category" required>
+                                        <option value="">Sélectionnez une catégorie</option>
+                                        <option value="visite">Visite culturelle</option>
+                                        <option value="musique">Musique</option>
+                                        <option value="art">Art</option>
+                                        <option value="litterature">Littérature</option>
+                                        <option value="theatre">Théâtre</option>
+                                        <option value="cinema">Cinéma</option>
+                                        <option value="danse">Danse</option>
+                                        <option value="photographie">Photographie</option>
+                                        <option value="gastronomie">Gastronomie</option>
+                                        <option value="autre">Autre</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="event-description">Description *</label>
+                                <textarea id="event-description" name="description" rows="5" required 
+                                    placeholder="Décrivez votre événement en détail..."></textarea>
+                                <small>Minimum 50 caractères</small>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Date et lieu</h2>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="event-date">Date *</label>
+                                    <input type="date" id="event-date" name="date" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="event-time">Heure *</label>
+                                    <input type="time" id="event-time" name="time" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="event-duration">Durée</label>
+                                    <select id="event-duration" name="duration">
+                                        <option value="">Sélectionnez une durée</option>
+                                        <option value="1h">1 heure</option>
+                                        <option value="2h">2 heures</option>
+                                        <option value="3h">3 heures</option>
+                                        <option value="4h">4 heures</option>
+                                        <option value="jour">Toute la journée</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="event-location">Lieu *</label>
+                                <input type="text" id="event-location" name="location" required 
+                                    placeholder="Ex: Café de la Place, 75004 Paris">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="event-price">Prix *</label>
+                                    <select id="event-price" name="price" required>
+                                        <option value="">Sélectionnez un prix</option>
+                                        <option value="free">Gratuit</option>
+                                        <option value="0-10">Moins de 10&euro;</option>
+                                        <option value="10-20">10&euro; - 20&euro;</option>
+                                        <option value="20-30">20&euro; - 30&euro;</option>
+                                        <option value="30+">Plus de 30&euro;</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="event-capacity">Nombre de participants</label>
+                                    <input type="number" id="event-capacity" name="capacity" min="1" max="50" 
+                                        placeholder="Ex: 15 (laissez vide pour illimité)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Options supplémentaires</h2>
+                            
+                            <div class="form-group">
+                                <label for="event-image">Image de l'événement</label>
+                                <input type="file" id="event-image" name="image" accept="image/*">
+                                <small>Format recommandé: 1200x800px, max 5MB</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="event-anonymous" name="anonymous" checked>
+                                    <span class="checkmark"></span>
+                                    Je souhaite rester anonyme en tant qu'organisateur
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="event-notify" name="notify" checked>
+                                    <span class="checkmark"></span>
+                                    Me notifier des nouveaux participants
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" id="preview-btn">Aperçu</button>
+                            <button type="submit" class="btn">Publier l'événement</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="create-event-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Conseils pour créer un événement réussi</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Soyez précis dans la description</li>
+                            <li><i class="fas fa-check-circle"></i> Choisissez un titre attractif</li>
+                            <li><i class="fas fa-check-circle"></i> Indiquez le point de rendez-vous exact</li>
+                            <li><i class="fas fa-check-circle"></i> Précisez le niveau d'expérience requis</li>
+                            <li><i class="fas fa-check-circle"></i> Mentionnez le matériel à apporter</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Règles de la communauté</h3>
+                        <ul>
+                            <li><i class="fas fa-shield-alt"></i> Respect de l'anonymat de tous</li>
+                            <li><i class="fas fa-heart"></i> Bienveillance et inclusivité</li>
+                            <li><i class="fas fa-ban"></i> Pas de contenu commercial</li>
+                            <li><i class="fas fa-lock"></i> Sécurité et respect des lieux</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Aide</h3>
+                        <p>Vous avez des questions ?</p>
+                        <a href="index.html#contact" class="btn btn-small">Contactez-nous</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/Logo culture radar.png" alt="Culture Radar" class="footer-logo-img">
+                    <p>Découvrez Paris autrement, en toute discrétion.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#evenements">Événements</a></li>
+                        <li><a href="index.html#carte">Carte</a></li>
+                        <li><a href="index.html#apropos">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">CGU</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Culture Radar - Tous droits réservés | Projet pédagogique</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bandeau cookies -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="container">
+            <div class="cookie-content">
+                <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer,
+                    vous acceptez notre <a href="#">politique de confidentialité</a>.</p>
+                <div class="cookie-buttons">
+                    <button id="accept-cookies" class="btn btn-small">Accepter</button>
+                    <button id="refuse-cookies" class="btn btn-small btn-outline">Refuser</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

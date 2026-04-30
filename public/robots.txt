@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+Sitemap: https://culture-radar.fr/sitemap.xml
+
+# Empêcher l'indexation des fichiers de configuration et temporaires
+Disallow: /*.tmp$
+Disallow: /*.log$
+Disallow: /private/
+Disallow: /admin/

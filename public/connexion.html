@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Connectez-vous à Culture Radar pour accéder aux événements culturels anonymes à Paris.">
+    <title>Connexion | Culture Radar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/Logo culture radar.png" alt="Culture Radar Logo" class="logo-img">
+                    <div class="logo">Culture Radar</div>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#evenements">Événements</a></li>
+                        <li><a href="creer-evenement.html">Créer un événement</a></li>
+                        <li><a href="index.html#carte">Carte</a></li>
+                        <li><a href="index.html#apropos">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Connexion -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h1>Connexion</h1>
+                        <p>Accédez à votre espace personnel pour participer aux événements</p>
+                    </div>
+
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="username">Pseudo ou Email *</label>
+                            <input type="text" id="username" name="username" required 
+                                placeholder="Votre pseudo ou email">
+                            <small>Utilisez votre pseudo ou votre email pour vous connecter</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Mot de passe *</label>
+                            <div class="password-input">
+                                <input type="password" id="password" name="password" required 
+                                    placeholder="Votre mot de passe">
+                                <button type="button" class="password-toggle" id="toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <small><a href="#" class="forgot-password">Mot de passe oublié ?</a></small>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember" name="remember">
+                                <span class="checkmark"></span>
+                                Se souvenir de moi
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-full">Se connecter</button>
+                    </form>
+
+                    <div class="auth-divider">
+                        <span>ou</span>
+                    </div>
+
+                    <div class="auth-social">
+                        <p>Continuer avec :</p>
+                        <div class="social-buttons">
+                            <button class="btn-social btn-google">
+                                <i class="fab fa-google"></i>
+                                Google
+                            </button>
+                            <button class="btn-social btn-facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Facebook
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="auth-footer">
+                        <p>Pas encore de compte ? <a href="inscription.html">Inscrivez-vous</a></p>
+                        <p><a href="index.html">Continuer sans connexion</a></p>
+                    </div>
+                </div>
+
+                <div class="auth-info">
+                    <div class="info-card">
+                        <h3>Pourquoi créer un compte ?</h3>
+                        <ul>
+                            <li><i class="fas fa-user-secret"></i> <strong>Anonymat préservé</strong> : Votre identité réelle n'est jamais révélée</li>
+                            <li><i class="fas fa-calendar-check"></i> <strong>Gestion des événements</strong> : Suivez vos participations</li>
+                            <li><i class="fas fa-bell"></i> <strong>Notifications</strong> : Soyez alerté des nouveaux événements</li>
+                            <li><i class="fas fa-heart"></i> <strong>Préférences</strong> : Événements recommandés selon vos goûts</li>
+                            <li><i class="fas fa-users"></i> <strong>Communauté</strong> : Rejoignez des passionnés comme vous</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Notre engagement anonymat</h3>
+                        <p>Chez Culture Radar, nous respectons votre vie privée. Vous pouvez :</p>
+                        <ul>
+                            <li>Utiliser un pseudo au lieu de votre vrai nom</li>
+                            <li>Participer aux événements sans révéler votre identité</li>
+                            <li>Contrôler qui voit vos informations</li>
+                            <li>Supprimer votre compte à tout moment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/Logo culture radar.png" alt="Culture Radar" class="footer-logo-img">
+                    <p>Découvrez Paris autrement, en toute discrétion.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#evenements">Événements</a></li>
+                        <li><a href="index.html#carte">Carte</a></li>
+                        <li><a href="index.html#apropos">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="../mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="../politique-confidentialite.html">Politique de confidentialité</a></li>
+                        <li><a href="#">CGU</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Culture Radar - Tous droits réservés | Projet pédagogique</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bandeau cookies -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="container">
+            <div class="cookie-content">
+                <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer,
+                    vous acceptez notre <a href="#">politique de confidentialité</a>.</p>
+                <div class="cookie-buttons">
+                    <button id="accept-cookies" class="btn btn-small">Accepter</button>
+                    <button id="refuse-cookies" class="btn btn-small btn-outline">Refuser</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
