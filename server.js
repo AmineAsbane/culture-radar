@@ -78,7 +78,7 @@ const testEvents = [
         max_participants: 50,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Soiree_Jazz_au_Sunset.jpg',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Soirée_Jazz_au_Sunset.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -95,7 +95,7 @@ const testEvents = [
         max_participants: 30,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Street_Art_Tour.jpg',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Street_Art_Tour_à_Belleville.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -112,7 +112,7 @@ const testEvents = [
         max_participants: 40,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Rencontre_Litteraire.png',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Rencontre_Littéraire.png',
         created_at: new Date(),
         is_published: true
     },
@@ -146,7 +146,7 @@ const testEvents = [
         max_participants: 100,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Cinema_en_plein_air.jpg',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Cinéma_en_plein_air.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -180,7 +180,7 @@ const testEvents = [
         max_participants: 80,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Concert_Classique_a_Notre-Dame.JFIF',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Concert_Classique_à_Notre-Dame.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -197,7 +197,7 @@ const testEvents = [
         max_participants: 40,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Visite_du_Chateau_de_Versailles.JFIF',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Visite_du_Château_de_Versailles.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -214,7 +214,7 @@ const testEvents = [
         max_participants: 60,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Theatre_Contemporain.JFIF',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Théâtre_Contemporain.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -265,7 +265,7 @@ const testEvents = [
         max_participants: 50,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Musee_d_Orsay.JFIF',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Musée_d_Orsay.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -282,7 +282,7 @@ const testEvents = [
         max_participants: 20,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Degustation_de_Vins.jpg',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Dégustation_de_Vins.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -299,7 +299,7 @@ const testEvents = [
         max_participants: 35,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Poesie_Slam_Night.png',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Poésie_&_Slam_Night.png',
         created_at: new Date(),
         is_published: true
     },
@@ -333,7 +333,7 @@ const testEvents = [
         max_participants: 200,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Festival_de_Musique_Electronique.JFIF',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Festival_de_Musique_Électronique.JFIF',
         created_at: new Date(),
         is_published: true
     },
