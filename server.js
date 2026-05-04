@@ -46,7 +46,7 @@ const testUser = {
 };
 users.push(testUser);
 
-// ===== 18 ÉVÉNEMENTS UNIQUES AVEC IMAGES UNSPLASH =====
+// ===== 18 ÉVÉNEMENTS AVEC IMAGES LOCALES =====
 const testEvents = [
     {
         id: uuidv4(),
@@ -61,7 +61,7 @@ const testEvents = [
         max_participants: 20,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/visite_nocturne.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -78,7 +78,7 @@ const testEvents = [
         max_participants: 50,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Soirée_Jazz_au_Sunset.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -95,7 +95,7 @@ const testEvents = [
         max_participants: 30,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Street_Art_Tour_à_Belleville.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -112,7 +112,7 @@ const testEvents = [
         max_participants: 40,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1507842454485-265f8d90ffa7?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Rencontre_Littéraire.png',
         created_at: new Date(),
         is_published: true
     },
@@ -129,7 +129,7 @@ const testEvents = [
         max_participants: 60,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1564399579883-451a5b44c0ea?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Exposition_Picasso.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -146,7 +146,7 @@ const testEvents = [
         max_participants: 100,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1520676357375-92ab63f27b4b?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Cinéma_en_plein_air.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -163,7 +163,7 @@ const testEvents = [
         max_participants: 15,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1561214115-6d2f1b0609fa?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Atelier_de_Peinture.jfif',
         created_at: new Date(),
         is_published: true
     },
@@ -180,7 +180,7 @@ const testEvents = [
         max_participants: 80,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Concert_Classique_à_Notre-Dame.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -197,7 +197,7 @@ const testEvents = [
         max_participants: 40,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1517604931442-7e0c6e4c9a55?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Visite_du_Château_de_Versailles.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -214,7 +214,7 @@ const testEvents = [
         max_participants: 60,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1485095329183-d0797cdc5676?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Théâtre_Contemporain.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -231,7 +231,7 @@ const testEvents = [
         max_participants: 70,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Danse_Contemporaine.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -248,7 +248,7 @@ const testEvents = [
         max_participants: 25,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1606986628025-35d57e735ae0?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Photography_Walk_Paris.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -265,7 +265,7 @@ const testEvents = [
         max_participants: 50,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Musée_d_Orsay.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -282,7 +282,7 @@ const testEvents = [
         max_participants: 20,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1510812431401-41d2cab2707d?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Dégustation_de_Vins.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -299,7 +299,7 @@ const testEvents = [
         max_participants: 35,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1503665181012-e5eb2e6e1a35?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Poésie_&_Slam_Night.png',
         created_at: new Date(),
         is_published: true
     },
@@ -316,7 +316,7 @@ const testEvents = [
         max_participants: 12,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Atelier_de_Sculpture.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -333,7 +333,7 @@ const testEvents = [
         max_participants: 200,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Festival_de_Musique_Électronique.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -350,7 +350,7 @@ const testEvents = [
         max_participants: 25,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://images.unsplash.com/photo-1486738850142-dd765facf475?w=400&h=300&fit=crop',
+        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Visite_Catacombes_de_Paris.JFIF',
         created_at: new Date(),
         is_published: true
     }
