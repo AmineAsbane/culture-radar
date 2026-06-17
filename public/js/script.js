@@ -1,5 +1,5 @@
 // Configuration API - À adapter selon ton environnement
-const API_URL = 'https://melodious-comfort-production-1295.up.railway.app/api';
+const API_URL = 'https://culture-radar-production-a2da.up.railway.app/api';
 
 // Variables globales
 let allEvents = []; // Tous les événements du backend
@@ -107,6 +107,8 @@ function initRegisterForm() {
         const email = document.getElementById('email')?.value.trim();
         const password = document.getElementById('password')?.value.trim();
         const confirmPassword = document.getElementById('confirm-password')?.value.trim();
+        const isProfessional = document.getElementById('is-professional')?.checked || false;
+        const organizationName = document.getElementById('organization-name')?.value.trim() || '';
 
         // Validation
         if (!pseudo || !email || !password || !confirmPassword) {
@@ -124,11 +126,16 @@ function initRegisterForm() {
             return;
         }
 
+        if (isProfessional && !organizationName) {
+            showAlert('❌ Veuillez indiquer le nom de votre structure/organisation', 'error');
+            return;
+        }
+
         try {
             const res = await fetch(`${API_URL}/users/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ pseudo, email, password })
+                body: JSON.stringify({ pseudo, email, password, is_professional: isProfessional, organization_name: organizationName })
             });
             
             const data = await res.json();
@@ -146,6 +153,15 @@ function initRegisterForm() {
             console.error('Erreur inscription:', e);
         }
     });
+
+    // Affiche/masque le champ "nom de la structure" selon la case professionnelle
+    const proCheckbox = document.getElementById('is-professional');
+    const orgField = document.getElementById('organization-field');
+    if (proCheckbox && orgField) {
+        proCheckbox.addEventListener('change', () => {
+            orgField.style.display = proCheckbox.checked ? 'block' : 'none';
+        });
+    }
 }
 
 // ============================================
@@ -442,42 +458,87 @@ function attachParticipateListeners() {
             }
             
             const eventId = this.getAttribute('data-event-id');
-            const originalText = this.textContent;
             
-            try {
-                this.disabled = true;
-                this.textContent = 'Inscription en cours...';
-                
-                const res = await fetch(`${API_URL}/events/${eventId}/join`, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
-                    }
-                });
-                
-                const data = await res.json();
-                
-                if (res.ok) {
-                    this.textContent = '✅ Inscrit!';
-                    this.classList.add('disabled');
-                    showAlert('✅ Vous êtes inscrit à cet événement!', 'success');
-                    
-                    // Recharger les événements pour mettre à jour le compteur
-                    setTimeout(() => loadAndDisplayEvents(), 2000);
-                } else {
-                    showAlert(`❌ ${data.error || 'Erreur lors de l\'inscription'}`, 'error');
-                    this.disabled = false;
-                    this.textContent = originalText;
-                }
-            } catch(e) {
-                showAlert(`❌ Erreur: ${e.message}`, 'error');
-                this.disabled = false;
-                this.textContent = originalText;
-                console.error('Erreur participation:', e);
-            }
+            // Ouvre la popup de sélection du nombre de personnes
+            openParticipateModal(eventId, this);
         });
     });
+}
+
+// ============================================
+// 9bis. POPUP NOMBRE DE PERSONNES
+// ============================================
+function openParticipateModal(eventId, buttonElement) {
+    // Évite les doublons si une modale est déjà ouverte
+    const existing = document.querySelector('.participate-modal-overlay');
+    if (existing) existing.remove();
+
+    const modal = document.createElement('div');
+    modal.className = 'participate-modal-overlay';
+    modal.innerHTML = `
+        <div class="participate-modal">
+            <h3>Combien de personnes participeront ?</h3>
+            <select id="participants-count" class="filter-select">
+                ${[1,2,3,4,5,6,7,8,9,10].map(n => `<option value="${n}">${n} personne${n > 1 ? 's' : ''}</option>`).join('')}
+            </select>
+            <div class="participate-modal-actions">
+                <button class="btn btn-small" id="confirm-participate">Confirmer l'inscription</button>
+                <button class="btn btn-small btn-outline" id="cancel-participate">Annuler</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    document.getElementById('cancel-participate').addEventListener('click', () => modal.remove());
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.remove();
+    });
+
+    document.getElementById('confirm-participate').addEventListener('click', async () => {
+        const nbPersonnes = parseInt(document.getElementById('participants-count').value);
+        modal.remove();
+        await submitParticipation(eventId, buttonElement, nbPersonnes);
+    });
+}
+
+// Envoie l'inscription avec le nombre de personnes
+async function submitParticipation(eventId, button, nbPersonnes) {
+    const token = localStorage.getItem('token');
+    const originalText = button.textContent;
+
+    try {
+        button.disabled = true;
+        button.textContent = 'Inscription en cours...';
+
+        const res = await fetch(`${API_URL}/events/${eventId}/join`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ participants_count: nbPersonnes })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+            button.textContent = '✅ Inscrit!';
+            button.classList.add('disabled');
+            showAlert(`✅ Inscription confirmée pour ${nbPersonnes} personne${nbPersonnes > 1 ? 's' : ''} !`, 'success');
+
+            // Recharger les événements pour mettre à jour le compteur
+            setTimeout(() => loadAndDisplayEvents(), 2000);
+        } else {
+            showAlert(`❌ ${data.error || 'Erreur lors de l\'inscription'}`, 'error');
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+    } catch(e) {
+        showAlert(`❌ Erreur: ${e.message}`, 'error');
+        button.disabled = false;
+        button.textContent = originalText;
+        console.error('Erreur participation:', e);
+    }
 }
 
 // ============================================
