@@ -11,7 +11,7 @@ const app = express();
 // ===== MIDDLEWARE =====
 app.use(cors({
     origin: function(origin, callback) {
-        const allowedOrigins = ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5000', 'https://melodious-comfort-production-1295.up.railway.app'];
+        const allowedOrigins = ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5000', 'https://culture-radar-production-a2da.up.railway.app'];
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
@@ -61,7 +61,7 @@ const testEvents = [
         max_participants: 20,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/visite_nocturne.jpg',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/visite_nocturne.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -78,7 +78,7 @@ const testEvents = [
         max_participants: 50,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Soirée_Jazz_au_Sunset.jpg',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Soirée_Jazz_au_Sunset.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -95,7 +95,7 @@ const testEvents = [
         max_participants: 30,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Street_Art_Tour_à_Belleville.jpg',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Street_Art_Tour_à_Belleville.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -112,7 +112,7 @@ const testEvents = [
         max_participants: 40,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Rencontre_Littéraire.png',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Rencontre_Littéraire.png',
         created_at: new Date(),
         is_published: true
     },
@@ -129,7 +129,7 @@ const testEvents = [
         max_participants: 60,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Exposition_Picasso.jpg',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Exposition_Picasso.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -146,7 +146,7 @@ const testEvents = [
         max_participants: 100,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Cinéma_en_plein_air.jpg',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Cinéma_en_plein_air.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -163,7 +163,7 @@ const testEvents = [
         max_participants: 15,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Atelier_de_Peinture.jfif',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Atelier_de_Peinture.jfif',
         created_at: new Date(),
         is_published: true
     },
@@ -180,7 +180,7 @@ const testEvents = [
         max_participants: 80,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Concert_Classique_à_Notre-Dame.JFIF',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Concert_Classique_à_Notre-Dame.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -197,7 +197,7 @@ const testEvents = [
         max_participants: 40,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Visite_du_Château_de_Versailles.JFIF',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Visite_du_Château_de_Versailles.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -214,7 +214,7 @@ const testEvents = [
         max_participants: 60,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Théâtre_Contemporain.JFIF',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Théâtre_Contemporain.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -231,7 +231,7 @@ const testEvents = [
         max_participants: 70,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Danse_Contemporaine.JFIF',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Danse_Contemporaine.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -248,7 +248,7 @@ const testEvents = [
         max_participants: 25,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Photography_Walk_Paris.jpg',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Photography_Walk_Paris.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -265,7 +265,7 @@ const testEvents = [
         max_participants: 50,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Musée_d_Orsay.JFIF',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Musée_d_Orsay.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -282,7 +282,7 @@ const testEvents = [
         max_participants: 20,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Dégustation_de_Vins.jpg',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Dégustation_de_Vins.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -299,7 +299,7 @@ const testEvents = [
         max_participants: 35,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Poésie_&_Slam_Night.png',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Poésie_&_Slam_Night.png',
         created_at: new Date(),
         is_published: true
     },
@@ -316,7 +316,7 @@ const testEvents = [
         max_participants: 12,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Atelier_de_Sculpture.jpg',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Atelier_de_Sculpture.jpg',
         created_at: new Date(),
         is_published: true
     },
@@ -333,7 +333,7 @@ const testEvents = [
         max_participants: 200,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Festival_de_Musique_Électronique.JFIF',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Festival_de_Musique_Électronique.JFIF',
         created_at: new Date(),
         is_published: true
     },
@@ -350,7 +350,7 @@ const testEvents = [
         max_participants: 25,
         current_participants: 0,
         creator_id: testUser.id,
-        image_url: 'https://melodious-comfort-production-1295.up.railway.app/images/Visite_Catacombes_de_Paris.JFIF',
+        image_url: 'https://culture-radar-production-a2da.up.railway.app/images/Visite_Catacombes_de_Paris.JFIF',
         created_at: new Date(),
         is_published: true
     }
@@ -387,7 +387,7 @@ app.get('/api/health', (req, res) => {
 
 // REGISTER
 app.post('/api/users/register', async (req, res) => {
-    const { pseudo, email, password } = req.body;
+    const { pseudo, email, password, is_professional, organization_name } = req.body;
 
     if (!pseudo || !email || !password) {
         return res.status(400).json({ error: 'Tous les champs sont requis' });
@@ -402,6 +402,8 @@ app.post('/api/users/register', async (req, res) => {
         pseudo,
         email,
         password_hash: await bcrypt.hash(password, 10),
+        is_professional: !!is_professional,
+        organization_name: organization_name || null,
         created_at: new Date(),
         is_active: true
     };
@@ -409,7 +411,7 @@ app.post('/api/users/register', async (req, res) => {
     users.push(user);
 
     res.json({
-        user: { id: user.id, pseudo: user.pseudo, email: user.email },
+        user: { id: user.id, pseudo: user.pseudo, email: user.email, is_professional: user.is_professional, organization_name: user.organization_name },
         token: generateToken(user.id, user.pseudo)
     });
 });
@@ -459,12 +461,23 @@ app.post('/api/events/:id/join', authenticateToken, (req, res) => {
     const event = events.find(e => e.id === req.params.id);
     if (!event) return res.status(404).json({ error: 'Événement non trouvé' });
 
-    if (event.current_participants >= event.max_participants) {
-        return res.status(400).json({ error: 'Événement plein' });
+    const participantsCount = parseInt(req.body.participants_count) || 1;
+
+    if (event.current_participants + participantsCount > event.max_participants) {
+        return res.status(400).json({ error: 'Pas assez de places disponibles pour ce nombre de personnes' });
     }
 
-    event.current_participants++;
-    res.json({ message: 'Inscrit à l\'événement' });
+    event.current_participants += participantsCount;
+
+    participations.push({
+        id: uuidv4(),
+        event_id: event.id,
+        user_id: req.user.id,
+        participants_count: participantsCount,
+        created_at: new Date()
+    });
+
+    res.json({ message: 'Inscrit à l\'événement', participants_count: participantsCount });
 });
 
 // CONTACT
