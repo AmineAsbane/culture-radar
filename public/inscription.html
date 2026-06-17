@@ -135,6 +135,22 @@
 
                         <div class="form-checkbox">
                             <label class="checkbox-label">
+                                <input type="checkbox" id="is-professional" name="is-professional">
+                                <span class="checkmark"></span>
+                                Je suis un professionnel / organisateur d'événements culturels
+                            </label>
+                            <small>Cochez cette case si vous représentez un lieu, une structure ou une organisation culturelle</small>
+                        </div>
+
+                        <div class="form-group" id="organization-field" style="display: none;">
+                            <label for="organization-name">Nom de votre structure / organisation</label>
+                            <input type="text" id="organization-name" name="organization-name" 
+                                placeholder="Ex : Musée du Louvre, Sunset Jazz Club...">
+                            <small>Cette information nous permet de valider votre profil professionnel</small>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <label class="checkbox-label">
                                 <input type="checkbox" id="anonymity" name="anonymity" checked>
                                 <span class="checkmark"></span>
                                 Je souhaite rester anonyme (mon vrai nom ne sera jamais affiché)
